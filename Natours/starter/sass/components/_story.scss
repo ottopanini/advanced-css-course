@@ -1,0 +1,38 @@
+.story {
+  width: 75%;
+  margin: 0 auto; //center
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: $color-white;
+  padding: 6rem;
+  padding-left: 9rem; //6+3
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  /* doesn't work here -> have to be applied on each chlid (because there is only one transform prop)
+  & > * {
+    transform: skewX(12deg);
+  }
+  */
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left; // so the rest floats around it
+    shape-outside: circle(50% at 50% 50%); //works only if floated and height and width are set
+    -webkit-shape-outside: circle(50% at 50% 50%);
+
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+
+    transform: translateX(-3rem) skewX(12deg); //better way of doing margins with floated elements
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+  }
+}
