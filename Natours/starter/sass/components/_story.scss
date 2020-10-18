@@ -8,6 +8,16 @@
   font-size: $default-font-size;
   transform: skewX(-12deg);
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem; //6+3
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
   /* doesn't work here -> have to be applied on each chlid (because there is only one transform prop)
   & > * {
     transform: skewX(12deg);
@@ -26,6 +36,10 @@
     -webkit-clip-path: circle(50% at 50% 50%);
 
     transform: translateX(-3rem) skewX(12deg); //better way of doing margins with floated elements
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__img {
@@ -38,6 +52,9 @@
   &__text {
     transform: skewX(12deg);
 
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__caption {
