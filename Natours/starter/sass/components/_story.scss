@@ -28,14 +28,22 @@
     width: 15rem;
     height: 15rem;
     float: left; // so the rest floats around it
-    shape-outside: circle(50% at 50% 50%); //works only if floated and height and width are set
-    -webkit-shape-outside: circle(50% at 50% 50%);
     position: relative;
+    border-radius: 50%;
 
-    clip-path: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      clip-path: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%); //works only if floated and height and width are set
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
     transform: translateX(-3rem) skewX(12deg); //better way of doing margins with floated elements
+
+    @supports () {
+    circle(50% at 50% 50%v
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);
